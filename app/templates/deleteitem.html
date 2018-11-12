@@ -1,0 +1,16 @@
+{% extends "menu.html" %}
+{% block body %}
+	<div class="container justify-content-around mt-3 mt-md-5">
+		<div class="row mx-md-5 bg-branco">
+			<div class="col text-left border">
+				<h3 class="mb-3 f-darkblue">Deletar Item</h3>
+				<form action="{{url_for('deletaItem', item_id=itemToDelete.id)}}" method = 'post'>
+					<div class="form-group">
+						<label>Você tem certeza que quer deletar o item {{itemToDelete.nome}} ?</label>
+					</div>
+					<input class="btn btn-outline-primary f-darkblue border-darkblue" type='submit' value='Delete'>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

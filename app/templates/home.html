@@ -1,0 +1,20 @@
+{% extends "menu.html" %}
+{% block body %}
+	<div class="container justify-content-around mt-3 mt-md-5">
+		<div class="row mx-md-5 bg-branco">
+			<div class="col col-xl-2 text-left border">
+				<h3 class="mb-3 f-darkblue">Categorias</h3>
+				{% for categoria in categoriasMenu %}
+				<a href = "{{url_for('catalogoItens', categoria_id = categoria.id)}}"><p class="f-laranja">{{categoria.nome}}</p></a>
+				{% endfor %}
+				<a href = "{{url_for('adicionaItem')}}" type="button" class="btn btn-outline-primary f-darkblue border-darkblue">Adiciona Item</a>
+			</div>
+			<div class="col col-xl-10 text-left border">
+				<h3 class="mb-3 f-darkblue">Últimos Itens</h3>
+				{% for item in ultimosItens %}
+				<a href = "{{url_for('descricaoItem', categoria_id = item.Categoria.id, item_id=item.Item.id)}}"><p class="f-laranja">{{item.Item.nome}} <em>({{item.Categoria.nome}})</em></p></a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

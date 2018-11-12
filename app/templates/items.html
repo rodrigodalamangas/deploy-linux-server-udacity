@@ -1,0 +1,19 @@
+{% extends "menu.html" %}
+{% block body %}
+	<div class="container justify-content-around mt-3 mt-md-5">
+		<div class="row mx-md-5 bg-branco">
+			<div class="col col-xl-2 text-left border">
+				<h3 class="mb-3 f-darkblue">Categorias</h3>
+				{% for categoria in categoriasMenu %}
+				<a href = "{{url_for('catalogoItens', categoria_id = categoria.id)}}"><p class="f-laranja">{{categoria.nome}}</p></a>
+				{% endfor %}
+			</div>
+			<div class="col col-xl-10 text-left border">
+				<h3 class="mb-3 f-darkblue">{{categoria.nome}} <em>({{contador}} Itens)</em></h3>
+				{% for item in itensCategoria %}
+				<a href = "{{url_for('descricaoItem', categoria_id = item.categoria_id, item_id=item.id)}}"><p class="f-laranja">{{item.nome}}</p></a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

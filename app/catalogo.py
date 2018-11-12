@@ -11,6 +11,7 @@ import httplib2
 import json
 from flask import make_response
 import requests
+from app import app
 
 #app = Flask(__name__)
 

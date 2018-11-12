@@ -3,4 +3,5 @@
 from app import app
 
 if __name__ == '__main__':
-    app.run()
+    app.secret_key = 'super_secret_key'
+    app.run(host='35.170.78.167', port=80)

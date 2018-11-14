@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 # Importa arquivo CRUD - acesso ao banco de dados
 import crud
-from flask import session as login_session, flash
+from flask import session as login_session, flash, Blueprint
 import random
 import string
 
@@ -12,11 +12,12 @@ import json
 from flask import make_response
 import requests
 import os
+app = Blueprint('app', __name__)
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 my_file = os.path.join(THIS_FOLDER, 'client_secrets.json')
 #app = Flask(__name__)
-app = Flask(__name__, instance_relative_config=True)
+
 CLIENT_ID = json.loads(
     open(my_file, 'r').read())['web']['client_id']
 APPLICATION_NAME = "Catalog Project"

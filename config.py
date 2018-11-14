@@ -1,4 +1,3 @@
-# config.py
-
-# Enable Flask's debugging features. Should be False in production
-DEBUG = False
+DEBUG = True
+SQLALCHEMY_ECHO = True
+SECRET_KEY = 'super_secret_key'

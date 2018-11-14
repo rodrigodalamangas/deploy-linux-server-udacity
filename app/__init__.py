@@ -2,11 +2,8 @@
 
 from flask import Flask
 
-# Initialize the app
-app = Flask(__name__, instance_relative_config=True)
-
-# Load the views
-from app import catalogo
-
-# Load the config file
-app.config.from_object('config')
+def create_app():
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_object('config')
+    from app import catalogo
+    return app

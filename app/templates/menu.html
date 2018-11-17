@@ -11,11 +11,11 @@
 	</head>
 	<body class="bg-cinza">
 		<nav class="navbar navbar-light bg-darkblue justify-content-around">
-			<a class="navbar-brand" href = "{{url_for('siteHome')}}"><h2 class="bg-darkblue">Catalogo APP</h2></a>
+			<a class="navbar-brand" href = "{{url_for('app.siteHome')}}"><h2 class="bg-darkblue">Catalogo APP</h2></a>
 			{% if 'email' not in login_session %}
-				<a class="btn btn-primary my-2 my-sm-0 bg-laranja border-darkblue" href="{{url_for('showLogin')}}" role="button">Login</a>
+				<a class="btn btn-primary my-2 my-sm-0 bg-laranja border-darkblue" href="{{url_for('app.showLogin')}}" role="button">Login</a>
 			{% else %}
-				<a class="btn btn-primary my-2 my-sm-0 bg-laranja border-darkblue" href="{{url_for('gdisconnect')}}" role="button">Logout</a>
+				<a class="btn btn-primary my-2 my-sm-0 bg-laranja border-darkblue" href="{{url_for('app.gdisconnect')}}" role="button">Logout</a>
 			{% endif %}
 		</nav>
 		<main>

@@ -5,8 +5,8 @@
 			<div class="col text-left border">
 				<h3 class="mb-3 f-darkblue">{{item.nome}} <em>({{categoria.nome}})</em></h3>
 				<p class="f-laranja">{{item.descricao}}</p>
-				<a href = "{{url_for('alteraItem', item_id=item.id)}}" role="button" class="btn btn-outline-primary f-darkblue border-darkblue">Alterar</a>
-				<a href = "{{url_for('deletaItem', item_id=item.id)}}" role="button" class="btn btn-outline-primary f-darkblue border-darkblue">Deletar</a>
+				<a href = "{{url_for('app.alteraItem', item_id=item.id)}}" role="button" class="btn btn-outline-primary f-darkblue border-darkblue">Alterar</a>
+				<a href = "{{url_for('app.deletaItem', item_id=item.id)}}" role="button" class="btn btn-outline-primary f-darkblue border-darkblue">Deletar</a>
 			</div>
 		</div>
 	</div>

@@ -44,7 +44,7 @@ def gconnect():
 
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets(my_file, scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
@@ -145,7 +145,7 @@ def gdisconnect():
         del login_session['email']
         #del login_session['picture']
         flash('Desconectado com sucesso.')
-        return redirect(url_for('siteHome'))
+        return redirect(url_for('app.siteHome'))
     else:
         response = make_response(
             json.dumps('Failed to revoke token for given user.', 400))
@@ -214,7 +214,7 @@ def descricaoItem(categoria_id, item_id):
 @app.route('/catalog/new/', methods=['GET', 'POST'])
 def adicionaItem():
     if 'email' not in login_session:
-        return redirect(url_for('showLogin'))
+        return redirect(url_for('app.showLogin'))
     else:
         if request.method == 'POST':
             nome = request.form['nome']
@@ -224,10 +224,10 @@ def adicionaItem():
             if nome and descricao and categoria_id:
                 crud.novoItem(nome, descricao, int(categoria_id), user)
                 flash('Item Adicionado com sucesso !')
-                return redirect(url_for('siteHome'))
+                return redirect(url_for('app.siteHome'))
             else:
                 flash('Todos os campos devem ser preenchidos !')
-                return redirect(url_for('adicionaItem'))
+                return redirect(url_for('app.adicionaItem'))
         else:
             categorias = crud.buscaTodasCategorias()
             return render_template(
@@ -240,7 +240,7 @@ def adicionaItem():
 @app.route('/catalog/<int:item_id>/edit/', methods=['GET', 'POST'])
 def alteraItem(item_id):
     if 'email' not in login_session:
-        return redirect(url_for('showLogin'))
+        return redirect(url_for('app.showLogin'))
     else:
         item = crud.bucaItem_porId(item_id)
     	if request.method == 'POST':
@@ -258,17 +258,17 @@ def alteraItem(item_id):
                     categoria_id = item[1]
                     flash('Item Alterado com sucesso !')
                     return redirect(url_for(
-                        'descricaoItem',
+                        'app.descricaoItem',
                         categoria_id=categoria_id,
                         item_id=item_id))
                 else:
                     flash('Todos os campos devem ser preenchidos !')
-                    return redirect(url_for('alteraItem', item_id=item.id))
+                    return redirect(url_for('app.alteraItem', item_id=item.id))
             else:
                 flash(
                     'Sem permissao para alterar o registro, voce nao e %s !'
                     % item.user)
-                return redirect(url_for('alteraItem', item_id=item.id))
+                return redirect(url_for('app.alteraItem', item_id=item.id))
         else:
             categorias = crud.buscaTodasCategorias()
             return render_template(
@@ -282,7 +282,7 @@ def alteraItem(item_id):
 @app.route('/catalog/<int:item_id>/delete/', methods=['GET', 'POST'])
 def deletaItem(item_id):
     if 'email' not in login_session:
-        return redirect(url_for('showLogin'))
+        return redirect(url_for('app.showLogin'))
     else:
         itemToDelete = crud.bucaItem_porId(item_id)
         if request.method == 'POST':
@@ -290,13 +290,13 @@ def deletaItem(item_id):
                 crud.apagaItem(item_id)
                 flash('Item Apagado com sucesso !')
                 return redirect(url_for(
-                    'catalogoItens',
+                    'app.catalogoItens',
                     categoria_id=itemToDelete.categoria_id))
             else:
                 flash(
                     'Sem permissao para deletar o registro, voce nao e %s !'
                     % itemToDelete.user)
-                return redirect(url_for('deletaItem', item_id=itemToDelete.id))
+                return redirect(url_for('app.deletaItem', item_id=itemToDelete.id))
         else:
             return render_template(
                 'deleteitem.html',

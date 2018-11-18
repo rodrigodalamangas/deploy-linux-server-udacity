@@ -1,3 +1,3 @@
 import sys
 sys.path.insert(0, '/var/www/html/awsserver')
-from run import app as application
+from app import app as application

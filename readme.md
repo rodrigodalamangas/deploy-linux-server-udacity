@@ -42,17 +42,15 @@ Servidor web Linux Ubuntu configurado para a aplicação de catalogo de materiai
 * Werkzeug==0.14.1
 
 ### Resumo de Configurações
-* Adicionado usuário grader para acesso ao Servidor
-* Adicionado usuário catalog para o banco de dados PostgreSQL
+* Adicionado usuário grader para acesso ao Servidor;
+* Adicionado usuário catalog para o banco de dados PostgreSQL;
 * Configuração do Uncomplicated Firewall (UFW) para permitir apenas conexões de entrada para SSH (porta 2200), HTTP (porta 80) e NTP (porta 123).
 
 ### Pré-requisito do App
-* Ter um web browser instalado como o [Chrome](https://www.google.pt/intl/pt-PT/
-chrome/?brand=CHBD&gclid=EAIaIQobChMI3Iuek8H32gIVDBGRCh3xvwoQEAAYASAAEgK3MPD_
-BwE&gclsrc=aw.ds&dclid=CIDp5pnB99oCFY9HhgodXyAAhw).
+* Ter um web browser instalado como o Google Chrome.
 
 ### Utilizando o App
-Acesse o aplicativo visitando http://35.170.78.167/catalog/ localmente, navegue pelos produtos e categorias e caso precise alterar, criar um novo registro ou deletar um item, faça o Login com uma conta do google clicando no botão *Login*.
+Acesse o aplicativo visitando http://35.170.78.167/catalog/, navegue pelos produtos e categorias e caso precise alterar, criar um novo registro ou deletar um item, faça o Login com uma conta do google clicando no botão *Login*.
 
 ### API
 O aplicativo possui uma API visitando http://35.170.78.167/catalog/JSON/.

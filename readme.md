@@ -5,6 +5,7 @@ Servidor web Linux Ubuntu configurado para a aplicação de catalogo de materiai
 * Usuário: grader
 * Porta SSH: 2200
 * IP: 35.170.78.167
+* DNS: http://dalamangas.com.br/
 
 ### Softwares Instalados no Servidor
 * Python 2.7
@@ -47,21 +48,21 @@ Servidor web Linux Ubuntu configurado para a aplicação de catalogo de materiai
 * Configuração do Uncomplicated Firewall (UFW) para permitir apenas conexões de entrada para SSH (porta 2200), HTTP (porta 80) e NTP (porta 123).
 
 ### Pré-requisito do App
-* Ter um web browser instalado como o Google Chrome.
+* Ter um web browser instalado como o [Google Chrome](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMIzNCL26fw3gIVwwaRCh3SlgKnEAAYAiAAEgJpiPD_BwE&gclsrc=aw.ds).
 
 ### Utilizando o App
-Acesse o aplicativo visitando http://35.170.78.167/catalog/, navegue pelos produtos e categorias e caso precise alterar, criar um novo registro ou deletar um item, faça o Login com uma conta do google clicando no botão *Login*.
+Acesse o aplicativo visitando http://dalamangas.com.br/catalog/, navegue pelos produtos e categorias e caso precise alterar, criar um novo registro ou deletar um item, faça o Login com uma conta do google clicando no botão *Login*.
 
 ### API
-O aplicativo possui uma API visitando http://35.170.78.167/catalog/JSON/.
+O aplicativo possui uma API visitando http://dalamangas.com.br/catalog/JSON/.
 
 ### Built With
-* **Python** - *Linguagem de Programação*
-* **Flask** - *The Web Framework*
-* **SQL Alchemy** - *The Python SQL Toolkit and Object Relational Mapper*
-* **HTML** - *HyperText Markup Language*
-* **CSS** - *Cascading Style Sheets*
-* **PostgreSQL** - *Database*
+* **[Python](https://www.python.org/)** - *Linguagem de Programação*
+* **[Flask](http://flask.pocoo.org/)** - *The Web Framework*
+* **[SQL Alchemy](https://www.sqlalchemy.org/)** - *The Python SQL Toolkit and Object Relational Mapper*
+* **[HTML](https://developer.mozilla.org/pt-PT/docs/Web/HTML)** - *HyperText Markup Language*
+* **[CSS](https://developer.mozilla.org/pt-PT/docs/Web/CSS)** - *Cascading Style Sheets*
+* **[PostgreSQL](https://www.postgresql.org/)** - *Database*
 
 ### Autor
 * **Rodrigo Dalamangas** - *Initial Work*
